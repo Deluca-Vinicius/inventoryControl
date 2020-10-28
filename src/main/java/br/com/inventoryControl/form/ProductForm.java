@@ -10,10 +10,9 @@ public class ProductForm {
     @NotNull
     String name;
     @NotNull
-    Integer price;
+    java.math.BigDecimal price;
 
-    public Product converter(){
-        return new Product(name,price);
+    public Product converter() {
+        return new Product(name, price);
     }
-
 }
