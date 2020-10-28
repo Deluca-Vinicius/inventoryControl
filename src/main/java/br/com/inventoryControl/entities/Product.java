@@ -1,7 +1,9 @@
 package br.com.inventoryControl.entities;
 
+import ch.qos.logback.core.joran.spi.NoAutoStart;
 import com.sun.istack.NotNull;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 import javax.persistence.*;
@@ -9,6 +11,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table
+@NoArgsConstructor
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,32 +26,4 @@ public class Product {
         this.name = name;
     }
 
-
-    public Product() {
-
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public java.math.BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(java.math.BigDecimal price) {
-        this.price = price;
-    }
 }
