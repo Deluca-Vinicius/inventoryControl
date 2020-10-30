@@ -1,10 +1,8 @@
 package br.com.inventoryControl.entities;
 
-import ch.qos.logback.core.joran.spi.NoAutoStart;
 import com.sun.istack.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 
 import javax.persistence.*;
 
@@ -16,14 +14,26 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NotNull
-    private String name;
-    @NotNull
-    private java.math.BigDecimal price;
 
-    public Product(String name, java.math.BigDecimal price) {
+    @NotNull
+    int productCompanyId; //product code in company receipt, making easier later updates
+
+    @NotNull
+    String name;
+
+    @NotNull
+    java.math.BigDecimal price;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "companyId")
+    private Company companyId;// identification of where it was purchased
+
+    public Product(String name, java.math.BigDecimal price, int productCompanyId, Company companyId) {
+
         this.price = price;
         this.name = name;
+        this.productCompanyId = productCompanyId;
+        this.companyId = companyId;
     }
 
 }
