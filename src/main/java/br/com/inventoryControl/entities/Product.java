@@ -11,6 +11,8 @@ import javax.persistence.*;
 @Table
 @NoArgsConstructor
 public class Product {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -24,11 +26,10 @@ public class Product {
     @NotNull
     java.math.BigDecimal price;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "companyId")
-    private Company companyId;// identification of where it was purchased
+    @NotNull
+    int companyId;// identification of where it was purchased
 
-    public Product(String name, java.math.BigDecimal price, int productCompanyId, Company companyId) {
+    public Product(String name, java.math.BigDecimal price, int productCompanyId, int companyId) {
 
         this.price = price;
         this.name = name;

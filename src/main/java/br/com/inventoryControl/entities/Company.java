@@ -15,6 +15,7 @@ import java.util.Set;
 @AllArgsConstructor
 public class Company {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;

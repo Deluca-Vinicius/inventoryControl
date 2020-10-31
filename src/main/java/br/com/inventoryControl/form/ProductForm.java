@@ -1,6 +1,5 @@
 package br.com.inventoryControl.form;
 
-import br.com.inventoryControl.entities.Company;
 import br.com.inventoryControl.entities.Product;
 import br.com.inventoryControl.repository.ProductRepository;
 import com.sun.istack.NotNull;
@@ -19,7 +18,7 @@ public class ProductForm {
     int productCompanyId;
 
     @NotNull
-    Company companyId;
+    int companyId;
 
     public Product creationConverter() {
         return new Product(name, price, productCompanyId, companyId);
