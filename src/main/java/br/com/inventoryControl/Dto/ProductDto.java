@@ -28,8 +28,8 @@ public class ProductDto {
 
         return productList.stream().map(ProductDto::new).collect(Collectors.toList());
     }
-    public static List<ProductDto> converterById (Optional<Product> productList){
+    public static List<ProductDto> converterById (Optional<Product> product){
 
-        return productList.stream().map(ProductDto::new).collect(Collectors.toList());
+        return product.stream().map(ProductDto::new).collect(Collectors.toList());
     }
 }

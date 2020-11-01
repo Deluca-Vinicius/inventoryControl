@@ -21,6 +21,7 @@ public class Company {
     int id;
 
     @NotNull
+    @Column(unique = true)
     String name;
 
     @OneToMany(mappedBy = "companyId")

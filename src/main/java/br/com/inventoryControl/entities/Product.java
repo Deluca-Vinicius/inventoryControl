@@ -18,7 +18,8 @@ public class Product {
     private int id;
 
     @NotNull
-    int productCompanyId; //product code in company receipt, making easier later updates
+    @Column(unique = true)
+    Integer productCompanyId; //product code in company receipt, making easier later updates
 
     @NotNull
     String name;
@@ -27,9 +28,9 @@ public class Product {
     java.math.BigDecimal price;
 
     @NotNull
-    int companyId;// identification of where it was purchased
+    Integer companyId;// identification of where it was purchased
 
-    public Product(String name, java.math.BigDecimal price, int productCompanyId, int companyId) {
+    public Product(String name, java.math.BigDecimal price, Integer productCompanyId, Integer companyId) {
 
         this.price = price;
         this.name = name;
